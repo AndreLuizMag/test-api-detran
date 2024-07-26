@@ -2,8 +2,13 @@
 import { getCarBrands } from '@/lib/invertexto/tabelaFipe'
 import React, { useEffect, useState } from 'react'
 
+type brand = {
+	id: number
+	brand: string
+}
+
 export const ListVeicle = () => {
-	const [brands, setBrands] = useState<string[]>([])
+	const [brands, setBrands] = useState<brand[]>([])
 
 	useEffect(() => {
 		const fetchBrands = async () => {
@@ -23,7 +28,7 @@ export const ListVeicle = () => {
 			Hue
 			<ul>
 				{brands.map((brand, index) => (
-					<li key={index}>{brand}</li>
+					<li key={index}>{brand.brand}</li>
 				))}
 			</ul>
 		</div>
